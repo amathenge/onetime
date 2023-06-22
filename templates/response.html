@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% from 'utils.j2' import one_time %} 
+
+{% block title %}One Time SMS{% endblock %} 
+
+{% block heading %}One Time SMS{% endblock %} 
+
+{% block content %} 
+    <div class="row justify-content-center">
+        <div class="col-6"><p>Please type in the OTP received in your email</p></div>
+    </div>
+    <div class="row justify-content-center"> 
+        <div class="col-md-6 border">
+            {{ one_time(url_for('check_otp')) }}
+        </div>
+    </div> 
+    <div class="row justify-content-center">
+        <div class="col-6">
+            {% if message %}
+            {{ message }}
+            {% endif %}
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            {% if user %}
+            <p>user: {{ user.username }} email: {{ user.email }}</p>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% from 'utils.j2' import login, one_time %}
+{% block title %}One Time SMS{% endblock %}
+
+{% block heading %}One Time SMS{% endblock %}
+
+{% block content %}
+    <div class="row justify-content-center">
+        <div class="col=5">
+            <p>Go back <a href="{{ url_for('login') }}"">Home</a></p>
+        </div>
+    </div>
+    {% if message %}
+    <div class="row mt-5">
+        <div class="col-12 border d-flex justify-content-center"><strong>{{ message }}</strong></div>
+    </div>
+    {% endif %}
+{% endblock %}
