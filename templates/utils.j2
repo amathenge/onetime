@@ -1,6 +1,6 @@
 # LOGIN FORM
 {% macro login(url) -%} 
-    <form action="{{ url }}" method="POST">
+    <form action="{{ url }}" method="POST" onsubmit="submitbutton.disabled=true; return true;">
         <div class="form-group my-2">
             <label for="username">Username</label> 
             <input class="form-control" type="text" id="username" name="username" maxlength="32" required>
@@ -10,7 +10,7 @@
             <input class="form-control" type="password" id="password" name="password" maxlength="32" required>
         </div>
         <div class="form-group d-grid my-2 text-center"> 
-            <button class="btn btn-primary mt-3" type="submit">submit</button>
+            <button class="btn btn-primary mt-3" type="submit" name="submitbutton">submit</button>
         </div>
     </form>
 {%- endmacro %}
