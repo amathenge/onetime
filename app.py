@@ -1,5 +1,5 @@
 '''
-    Send a onetime code (a.k.a. OTP) to the user via SMS and/or Email.
+    Send a onetime code/pin (a.k.a. OTP) to the user via SMS and/or Email.
 '''
 
 from flask import Flask, render_template, request, session
@@ -106,6 +106,8 @@ def check_otp():
                     db.commit()
             else:
                 message = f"You Missed it! - try again"
+                # will have to go back to the login page and try login again. No 
+                # option to try and type in an OTP here.
             return render_template('otp_response.html', message=message)
     return render_template('response.html', message=message)
 
